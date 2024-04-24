@@ -1,6 +1,7 @@
 package com.devstack.healthCare.product.api;
 
 import com.devstack.healthCare.product.dto.request.RequestDoctorDto;
+import com.devstack.healthCare.product.service.DoctorService;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -10,9 +11,17 @@ import org.springframework.web.bind.annotation.*;
 doctores wala s akura ona*/
 
 public class DoctorController {
+
+    private final DoctorService doctorService;
+
+    public DoctorController(DoctorService doctorService) {
+        this.doctorService = doctorService;
+    }
+
     @PostMapping/*default data passing type is json we can chang it if we needed*/
     public String createDoctor(@RequestBody RequestDoctorDto doctorDto){
-        return doctorDto.toString();
+        doctorService.createDoctor(doctorDto);
+        return doctorDto.getName();
     }
     @GetMapping("/{id}")
     public String findDoctor(@PathVariable String id){

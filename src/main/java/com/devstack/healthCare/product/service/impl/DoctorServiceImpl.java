@@ -9,6 +9,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.UUID;
+
 @Service
 
 public class DoctorServiceImpl implements DoctorService {
@@ -22,8 +24,12 @@ public class DoctorServiceImpl implements DoctorService {
 
     @Override
     public void createDoctor(RequestDoctorDto dto) {
+
+        UUID uuid = UUID.randomUUID();
+        long docId = uuid.getMostSignificantBits();
+
         Doctor doctor = new Doctor(
-                "", dto.getName(), dto.getAddress(), dto.getContact(), dto.getSalary()
+                docId, dto.getName(), dto.getAddress(), dto.getContact(), dto.getSalary()
         );
         doctorRepo.save(doctor);
 
