@@ -2,6 +2,7 @@ package com.devstack.healthCare.product.service;
 
 import com.devstack.healthCare.product.dto.request.RequestDoctorDto;
 import com.devstack.healthCare.product.dto.response.ResponseDoctorDto;
+import com.devstack.healthCare.product.dto.response.paginated.PaginatedDoctorResponseDto;
 
 import java.util.List;
 
@@ -12,7 +13,7 @@ public interface DoctorService  {
         public void deleteDoctor(long id);
         public List<ResponseDoctorDto> findDoctorsByName(String name);
         public void updateDoctor(long id, RequestDoctorDto dto);
-        public List<ResponseDoctorDto> getAllDoctors(String searchText, int page,int size);
+        public PaginatedDoctorResponseDto getAllDoctors(String searchText, int page, int size);
 
 }
 
