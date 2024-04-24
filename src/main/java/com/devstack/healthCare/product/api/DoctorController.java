@@ -2,6 +2,10 @@ package com.devstack.healthCare.product.api;
 
 import com.devstack.healthCare.product.dto.request.RequestDoctorDto;
 import com.devstack.healthCare.product.service.DoctorService;
+import com.devstack.healthCare.product.util.StandardResponse;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.HttpStatusCode;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -19,13 +23,20 @@ public class DoctorController {
     }
 
     @PostMapping/*default data passing type is json we can chang it if we needed*/
-    public String createDoctor(@RequestBody RequestDoctorDto doctorDto){
+    public ResponseEntity<StandardResponse> createDoctor(@RequestBody RequestDoctorDto doctorDto){
         doctorService.createDoctor(doctorDto);
-        return doctorDto.getName();
+        return new ResponseEntity<>(
+                new StandardResponse(201,"Doctor saved",doctorDto.getName()),
+                HttpStatus.CREATED
+        );
+
     }
     @GetMapping("/{id}")
-    public String findDoctor(@PathVariable String id){
-        return id+"";
+    public ResponseEntity<StandardResponse> findDoctor(@PathVariable long id){
+        return new ResponseEntity<>(
+                new StandardResponse(200,"Doctor data",doctorService.getDoctor(id)),
+                HttpStatus.OK
+        );
     }
     @DeleteMapping("/{id}")
     public String deleteDoctor(@PathVariable String id){
