@@ -6,9 +6,12 @@ import com.devstack.healthCare.product.entity.Doctor;
 import com.devstack.healthCare.product.repo.DoctorRepo;
 import com.devstack.healthCare.product.service.DoctorService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 
 import javax.print.Doc;
+import java.awt.print.Pageable;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
@@ -67,6 +70,34 @@ public class DoctorServiceImpl implements DoctorService {
 
     @Override
     public void updateDoctor(long id, RequestDoctorDto dto) {
+        Optional<Doctor> selectedDoctor = doctorRepo.findById(id);/*Optional => to work with null values*/
+        if (selectedDoctor.isEmpty()){
+            throw new RuntimeException("Doctor not found");
+        }
+        Doctor doctor = selectedDoctor.get();
+        doctor.setName(dto.getName());
+        doctor.setAddress(dto.getAddress());
+        doctor.setSalary(dto.getSalary());
+        doctor.setContact(dto.getContact());
 
+        doctorRepo.save(doctor);
     }
+
+    @Override
+    public List<ResponseDoctorDto> getAllDoctors(String searchText, int page, int size) {
+        searchText="%"+searchText+"%";
+        List<Doctor> doctors = doctorRepo.searchDoctor(searchText, (Pageable) PageRequest.of(page, size));
+        List <ResponseDoctorDto> dtos = new ArrayList<>();
+        doctors.forEach(doctor -> {
+            dtos.add(
+                    new ResponseDoctorDto(
+                            doctor.getId(),doctor.getName(),doctor.getAddress(),
+                            doctor.getContact(), doctor.getSalary()
+                    )
+            );
+        });
+        return dtos;
+    }
+
+
 }
