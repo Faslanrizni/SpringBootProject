@@ -18,5 +18,5 @@ public class Doctor {
     private String name;
     private String address;
     private String contact;
-    private String salary;
+    private double salary;
 }
