@@ -11,7 +11,7 @@ import java.util.List;
 
 @Repository
 @EnableJpaRepositories
-public interface DoctorRepo extends JpaRepository<Doctor,Long> {
+public interface DoctorRepo extends JpaRepository<Doctor,Long> {/*type and id*/
     public List<Doctor> findAllByName(String name);
 
     @Query(value = "SELECT * FROM doctor WHERE name LIKE ?1 OR address LIKE ?1", nativeQuery = true)
@@ -20,3 +20,6 @@ public interface DoctorRepo extends JpaRepository<Doctor,Long> {
     @Query(value = "SELECT COUNT(*) FROM doctor WHERE name LIKE ?1 OR address LIKE ?1", nativeQuery = true)
     public Long countDoctors(String searchText);
 }
+/*
+* DoctorRepo need to works with entity Doctor
+* */

@@ -8,7 +8,7 @@ import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-@RestController
+@RestController/*The class is marked as @RestController, meaning it is ready to handle web requests*/
 @RequestMapping("api/v1/doctors")
 
 /* api => application program interface

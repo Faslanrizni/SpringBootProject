@@ -16,3 +16,5 @@ public class RequestDoctorDto {
     private String contact;
     private double salary;
 }
+
+/* object that used to save */
