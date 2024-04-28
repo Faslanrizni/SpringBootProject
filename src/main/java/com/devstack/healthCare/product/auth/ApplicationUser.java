@@ -17,6 +17,7 @@ public class ApplicationUser implements UserDetails {
     private final boolean isCredentialsNonExpired;
     private final boolean isEnabled;
 
+
     public ApplicationUser(Set<? extends GrantedAuthority> getAuthorities, String password, String userName, boolean isAccountNonExpired, boolean isAccountNonLocked, boolean isCredentialsNonExpired, boolean isEnabled) {
         this.getAuthorities = getAuthorities;
         this.password = password;
