@@ -12,7 +12,7 @@ public class ApplicationSecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         CorsConfiguration configuration = new CorsConfiguration();
         configuration.setAllowedHeaders(List.of("Authorization","Content-Type"));
-        configuration.setAllowedOrigins(List.of("*")); /*all alowed*/
+        configuration.setAllowedOrigins(List.of("*")); /*all allowed*/
         configuration.setAllowedMethods(List.of("GET","POST","PUT","DELETE"));
         configuration.setExposedHeaders(List.of("Authorization"));/**/
     }
