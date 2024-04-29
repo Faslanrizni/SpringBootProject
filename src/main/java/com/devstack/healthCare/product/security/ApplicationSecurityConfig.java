@@ -8,6 +8,8 @@ import org.springframework.web.cors.CorsConfiguration;
 import java.util.List;
 
 public class ApplicationSecurityConfig extends WebSecurityConfigurerAdapter {
+
+
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         CorsConfiguration configuration = new CorsConfiguration();
