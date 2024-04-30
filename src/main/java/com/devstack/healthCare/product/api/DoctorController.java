@@ -4,7 +4,7 @@ import com.devstack.healthCare.product.dto.request.RequestDoctorDto;
 import com.devstack.healthCare.product.service.DoctorService;
 import com.devstack.healthCare.product.util.StandardResponse;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.HttpStatusCode;
+
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 

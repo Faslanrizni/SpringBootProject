@@ -8,9 +8,11 @@ import com.devstack.healthCare.product.repo.UserRepo;
 import com.devstack.healthCare.product.repo.UserRoleHasUserRepo;
 import com.devstack.healthCare.product.repo.UserRoleRepo;
 import com.devstack.healthCare.product.service.UserService;
-import jakarta.transaction.Transactional;
+
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
+
+import javax.transaction.Transactional;
 
 @Service
 @Transactional
@@ -55,8 +57,6 @@ public class UserServiceImpl implements UserService {
         UserRoleHasUser userData = new UserRoleHasUser(user,userRole);
         userRepo.save(user);
         userRoleHasUserRepo.save(userData);
-
-
     }
 
     @Override

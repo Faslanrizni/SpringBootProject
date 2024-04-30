@@ -1,7 +1,12 @@
 package com.devstack.healthCare.product.entity;
 
-import jakarta.persistence.*;
-import lombok.*;
+
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.RequiredArgsConstructor;
+import lombok.Setter;
+
+import javax.persistence.*;
 
 @Entity
 @AllArgsConstructor
@@ -10,7 +15,7 @@ import lombok.*;
 @Setter
 public class UserRoleHasUser {
     @EmbeddedId
-    private UserRoleHasUserKey id = new UserRoleHasUserKey();
+    private UserRoleHasUserKey id= new UserRoleHasUserKey();
 
     @ManyToOne
     @MapsId("user")
@@ -18,7 +23,7 @@ public class UserRoleHasUser {
     private User user;
 
     @ManyToOne
-    @MapsId("user")
+    @MapsId("userRole")
     @JoinColumn(name = "role_id",nullable = false)
     private UserRole userRole;
 

@@ -1,7 +1,15 @@
 package com.devstack.healthCare.product.jwt;
 
-import org.hibernate.query.sql.internal.ParameterRecognizerImpl;
 
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
 public class UsernamePasswordAuthenticationRequest {
     private String username;
     private String password;
