@@ -17,9 +17,7 @@ public class User {
     @Id
     private long id;
     private String fullName;
-
-    private String email;
-
+    private String username;
     private String password;
 
     private boolean isAccountNonExpired;
@@ -29,6 +27,8 @@ public class User {
 
     @OneToMany(mappedBy = "user")
     private Set<UserRoleHasUser> userRoleHasUsers;
+    // In your User entity class
+
 
 
 }
