@@ -2,12 +2,9 @@ package com.devstack.healthCare.product.service.impl;
 
 import com.devstack.healthCare.product.auth.ApplicationUser;
 import com.devstack.healthCare.product.entity.User;
-import com.devstack.healthCare.product.entity.UserRole;
 import com.devstack.healthCare.product.entity.UserRoleHasUser;
 import com.devstack.healthCare.product.repo.UserRepo;
 import com.devstack.healthCare.product.repo.UserRoleHasUserRepo;
-import com.devstack.healthCare.product.security.ApplicationUserRole;
-import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -59,8 +56,9 @@ public class ApplicationUserServiceImpl implements UserDetailsService {
                 selcetedUser.getUsername(),
                 selcetedUser.isAccountNonExpired(),
                 selcetedUser.isAccountNonLocked(),
-                selcetedUser.isCredentialNonExpired(),
+                selcetedUser.isCredentialsNonExpired(),
                 selcetedUser.isEnabled()
+
         );
 
 

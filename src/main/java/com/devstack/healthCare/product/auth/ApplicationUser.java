@@ -58,6 +58,7 @@ public class ApplicationUser implements UserDetails {
         return isCredentialsNonExpired;
     }
 
+
     @Override
     public boolean isEnabled() {
         return isEnabled;

@@ -21,14 +21,13 @@ public class User {
     private String password;
 
     private boolean isAccountNonExpired;
-    private boolean isCredentialNonExpired;
+
     private boolean isAccountNonLocked;
+    private boolean isCredentialsNonExpired;
+
     private boolean isEnabled;
 
     @OneToMany(mappedBy = "user")
     private Set<UserRoleHasUser> userRoleHasUsers;
     // In your User entity class
-
-
-
 }

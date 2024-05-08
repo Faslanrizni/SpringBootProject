@@ -1,5 +1,6 @@
 package com.devstack.healthCare.product.repo;
 
+import com.devstack.healthCare.product.entity.User;
 import com.devstack.healthCare.product.entity.UserRole;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
@@ -8,7 +9,7 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 @EnableJpaRepositories
-public interface UserRoleRepo extends JpaRepository<UserRole, Long> {
+public interface UserRoleRepo extends JpaRepository<UserRole , Long> {
     @Query(value = "SELECT * FROM user_role WHERE role_name=?1",nativeQuery = true)
     UserRole findUserRoleByName(String admin);
 }
